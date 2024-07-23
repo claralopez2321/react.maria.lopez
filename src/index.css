@@ -1,0 +1,249 @@
+/* Global Styles */
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #2C3232;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.logo a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: white;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-links a:hover {
+  text-decoration: underline;
+}
+
+/* Section Styles */
+.section {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Welcome Section */
+.welcome {
+  background-color: #FFF0C0;
+  color: #2C3232;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 800px;
+  padding: 0;
+  width: 100%;
+}
+
+.welcome-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 100%;
+  gap: 2rem;
+  width: 100%;
+  padding: 0 1rem; /* Adjust padding for smaller screens */
+}
+
+.welcome-content img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+.text-content {
+  max-width: 60%;
+}
+
+/* Services Section */
+.services {
+  background-color: #2C3232;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 800px;
+  padding: 0;
+  width: 100%;
+}
+
+.services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 0 1rem; /* Add padding for better alignment */
+}
+
+.service-card {
+  background-color: #3A3F3F;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+  padding: 1rem;
+  margin: 0.5rem;
+}
+
+/* Contact Section */
+.contact {
+  background-color: #FFBF00;
+  color: #2C3232;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 800px;
+  padding: 0;
+  width: 100%;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px; /* Adjust as needed */
+  width: 100%;
+  gap: 1rem;
+  padding: 0 1rem; /* Ensure form is not touching the edges */
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-container input, .form-container textarea {
+  padding: 0.5rem;
+  border: 1px solid #2C3232;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.form-container button {
+  background-color: #2C3232;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-container button:hover {
+  background-color: #1A1A1A;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #FFF0C0;
+  text-align: center;
+  padding: 1rem;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .welcome {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .welcome-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .services-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .form-container {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.5rem;
+  }
+
+  .logo a {
+    font-size: 1.25rem;
+  }
+
+  .welcome-content img {
+    max-width: 300px;
+  }
+
+  .service-card {
+    padding: 0.5rem;
+  }
+
+  .footer {
+    height: auto;
+    padding: 0.5rem;
+  }
+}
+
+
+
+
+
+
+
+
