@@ -1,27 +1,27 @@
 import React from 'react';
 import './App.css';
+import Navbar from './components/Navbar/Navbar';
+import { Footer } from './components/Footer/Footer';
+import Saludo from './components/Saludo/Saludo';
+import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
+
+
+
 
 function App() {
   return (
-    <div>
-      {/* Navbar */}
-      <nav className="navbar">
-        <div className="logo">
-          <a href="#home">ForeverFramed</a>
-        </div>
-        <div className="navbar-links">
-          <a href="#welcome">Inicio</a>
-          <a href="#services">Servicios</a>
-          <a href="#contact">Contacto</a>
-        </div>
-      </nav>
-
+    <>
+      <Navbar />
+      
       {/* Welcome Section */}
+
       <section id="welcome" className="welcome">
         <div className="welcome-content">
-          <img src="https://via.placeholder.com/400x800" alt="Welcome" />
+          <img src="/fotospolaroid-16.png" alt="Welcome" />
           <div className="text-content">
-            <h1>Bienvenido a ForeverFramed</h1>
+          <Saludo saludo="Hola Buenos días" horario= "mañana"/>
+          <ItemListContainer greeting= "Bienvenidos a ForeverFramed"/>
+
             <p>
               En ForeverFramed.com, inmortalizamos tus momentos especiales con elegancia. 
               Desde bodas hasta graduaciones, crea recuerdos que durarán para siempre.
@@ -66,11 +66,8 @@ function App() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="footer">
-        <p>&copy; 2024 ForeverFramed. Todos los derechos reservados.</p>
-      </footer>
-    </div>
+      <Footer />
+    </>
   );
 }
 
