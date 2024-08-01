@@ -1,0 +1,28 @@
+/* CuadroFoco.css */
+.cuadro-foco {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+  }
+  
+  .cuadro-foco.apagado {
+    background-color: blue;
+    color: white;
+  }
+  
+  .cuadro-foco.encendido {
+    background-color: #FFBF00;
+    color: black;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  

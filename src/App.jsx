@@ -1,12 +1,12 @@
+// App.jsx
 import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import { Footer } from './components/Footer/Footer';
 import Saludo from './components/Saludo/Saludo';
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
-
-
-
+import Card from './components/Card/Card';
+import CuadroFoco from './components/CuadroFoco/CuadroFoco'; // Asegúrate de que la ruta sea correcta
 
 function App() {
   return (
@@ -14,14 +14,12 @@ function App() {
       <Navbar />
       
       {/* Welcome Section */}
-
       <section id="welcome" className="welcome">
         <div className="welcome-content">
           <img src="/fotospolaroid-16.png" alt="Welcome" />
           <div className="text-content">
-          <Saludo saludo="Hola Buenos días" horario= "mañana"/>
-          <ItemListContainer greeting= "Bienvenidos a ForeverFramed"/>
-
+            <Saludo saludo="Hola Buenos días" horario="mañana" />
+            <ItemListContainer greeting="Bienvenidos a ForeverFramed" />
             <p>
               En ForeverFramed.com, inmortalizamos tus momentos especiales con elegancia. 
               Desde bodas hasta graduaciones, crea recuerdos que durarán para siempre.
@@ -30,21 +28,17 @@ function App() {
         </div>
       </section>
 
+      {/* CuadroFoco Component */}
+      <section id="cuadro-foco" className="cuadro-foco-section">
+        <CuadroFoco />
+      </section>
+
       {/* Services Section */}
       <section id="services" className="services">
         <div className="services-grid">
-          <div className="service-card">
-            <h2>Viajes inolvidables</h2>
-            <p>Viajes de todo tipo, recuerdos para siempre.</p>
-          </div>
-          <div className="service-card">
-            <h2>Fiestas únicas</h2>
-            <p>Bodas, cumpleaños, aniversarios.</p>
-          </div>
-          <div className="service-card">
-            <h2>Días para recordar</h2>
-            <p>Bautizos, graduaciones, eventos.</p>
-          </div>
+          <Card title="Viajes inolvidables" description="Viajes de todo tipo, recuerdos para siempre." />
+          <Card title="Fiestas únicas" description="Bodas, cumpleaños, aniversarios." />
+          <Card title="Días para recordar" description="Bautizos, graduaciones, eventos." />
         </div>
       </section>
 
