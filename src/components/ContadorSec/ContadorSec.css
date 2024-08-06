@@ -1,0 +1,44 @@
+/* src/components/ContadorSec/ContadorSec.css */
+.contador-sec {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contador-sec h2 {
+    margin: 0;
+    color: #333;
+  }
+  
+  .contador-sec p {
+    font-size: 18px;
+    color: #555;
+    margin-right: 10px;
+  }
+  
+  .contador-sec .contador-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .contador-sec button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .contador-sec button:hover {
+    background-color: #0056b3;
+  }
+  
+  

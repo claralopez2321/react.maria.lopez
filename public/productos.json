@@ -1,0 +1,21 @@
+[
+    {
+      "id": 1,
+      "title": "Viajes inolvidables",
+      "description": "Viajes de todo tipo, recuerdos para siempre.",
+      "price": 100
+    },
+    {
+      "id": 2,
+      "title": "Fiestas únicas",
+      "description": "Bodas, cumpleaños, aniversarios.",
+      "price": 50
+    },
+    {
+      "id": 3,
+      "title": "Días para recordar",
+      "description": "Bautizos, graduaciones, eventos.",
+      "price": 70
+    }
+  ]
+  

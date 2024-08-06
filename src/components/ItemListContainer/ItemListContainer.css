@@ -1,0 +1,22 @@
+/* Asegúrate de que este CSS esté en ItemListContainer.css */
+.products-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px; /* Ajusta el espacio entre los productos */
+  justify-content: center; /* Centra los productos horizontalmente */
+  align-items: center; /* Centra los productos verticalmente */
+  padding: 20px; /* Agrega padding si es necesario */
+}
+
+.product-card {
+  border: 1px solid #ccc;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  width: 200px; /* Ajusta el ancho según sea necesario */
+  background-color: #fff; /* Asegúrate de que el fondo sea visible */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Agrega sombra para destacar */
+}
+
+  
+  
