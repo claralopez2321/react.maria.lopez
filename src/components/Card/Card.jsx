@@ -1,5 +1,5 @@
 import React from 'react';
-import './Card.css';
+import '../Card/Card.css'; 
 
 const Card = ({ title, description }) => {
   return (
@@ -11,5 +11,6 @@ const Card = ({ title, description }) => {
 };
 
 export default Card;
+
 
 

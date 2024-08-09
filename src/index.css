@@ -7,6 +7,9 @@ body {
   overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
+.titulolanding {
+  font-size: 40px;
+}
 * {
   box-sizing: border-box;
 }
@@ -204,6 +207,26 @@ body {
     height: auto;
     padding: 0.5rem;
   }
+}
+
+
+/* Agrega estilos para el botón "Ver más" */
+.view-more-button {
+  display: inline-block;
+  margin-top: 16px;
+}
+
+.view-more-button button {
+  background-color: #2C3232;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.view-more-button button:hover {
+  background-color: #1A1A1A;
 }
 
 

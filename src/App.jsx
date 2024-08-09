@@ -1,86 +1,75 @@
+// src/App.jsx
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
-import { Footer } from './components/Footer/Footer';
+import Footer from './components/Footer/Footer'; // Asegúrate de que esté así
 import Saludo from './components/Saludo/Saludo';
 import Card from './components/Card/Card';
 import CuadroFoco from './components/CuadroFoco/CuadroFoco';
-import { ContadorSec } from './components/ContadorSec/ContadorSec';
-import Contador from './components/Contador/Contador';
-import Item from './components/Item/Item';
-import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
+import ContadorSec from './components/ContadorSec/ContadorSec';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+
+// Resto del código
 
 function App() {
   return (
-    <>
+    <Router>
       <Navbar />
-      
-      {/* Welcome Section */}
-      <section id="welcome" className="welcome">
-        <div className="welcome-content">
-          <img src="/fotospolaroid-16.png" alt="Welcome" />
-          <div className="text-content">
-            <Saludo saludo="Hola Buenos días" horario="mañana" />
-            <p>
-              En ForeverFramed.com, inmortalizamos tus momentos especiales con elegancia. 
-              Desde bodas hasta graduaciones, crea recuerdos que durarán para siempre.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* CuadroFoco Component */}
-      <section id="cuadro-foco" className="cuadro-foco-section">
-        <CuadroFoco />
-        <ContadorSec />
-      </section>
-
-      {/* ItemListContainer Section */}
-      <section id="products" className="products">
-        <ItemListContainer greeting="Nuestros Productos" />
-        <Item />
-
-      </section>
-
-      {/* Services Section */}
-      <section id="services" className="services">
-        <div className="services-grid">
-          <div className="card-container">
-            <Card title="Viajes inolvidables" description="Viajes de todo tipo, recuerdos para siempre." />
-            <Contador />
-          </div>
-          <div className="card-container">
-            <Card title="Fiestas únicas" description="Bodas, cumpleaños, aniversarios." />
-            <Contador />
-          </div>
-          <div className="card-container">
-            <Card title="Días para recordar" description="Bautizos, graduaciones, eventos." />
-            <Contador />
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="contact">
-        <div className="form-container">
-          <form>
-            <label htmlFor="name">Nombre:</label>
-            <input type="text" id="name" name="name" required />
-            
-            <label htmlFor="email">Correo Electrónico:</label>
-            <input type="email" id="email" name="email" required />
-            
-            <label htmlFor="message">Mensaje:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-            
-            <button type="submit">Enviar</button>
-          </form>
-        </div>
-      </section>
-
+      <Routes>
+        <Route path="/" element={
+          <>
+            <section id="welcome" className="welcome">
+              <div className="welcome-content">
+                <img src="/fotospolaroid-16.png" alt="Welcome" />
+                <div className="text-content">
+                  <h1 className='titulolanding'>Bienvenido a ForeverFramed</h1>
+                  <Saludo saludo="Nuestro equipo de trabajo" horario="mañana" />
+                  <p>
+                    En ForeverFramed.com, inmortalizamos tus momentos especiales con elegancia. 
+                    Desde bodas hasta graduaciones, crea recuerdos que durarán para siempre.
+                  </p>
+                </div>
+              </div>
+            </section>
+            <section id="cuadro-foco" className="cuadro-foco-section">
+              <CuadroFoco />
+              <ContadorSec />
+            </section>
+            <section id="products" className="products">
+              <ItemListContainer greeting="Nuestros Productos" />
+            </section>
+            <section id="services" className="services">
+            <h2>¿Beneficios de tener tus recuerdos en ForeverFramed?</h2>
+              <div className="services-grid">
+                <Card title="Viajes inolvidables" description="Podrán ver las fotos y videos de ese gran viaje todas las veces que quieran. Ideal para inmortalizar momentos" />
+                <Card title="Fiestas únicas" description="El dominio y el host de tus recuerdos son permanentes, es decir que tus recuerdos no se borrarán nunca!" />
+                <Card title="Días para recordar" description="Las tecnologías van a pasos de gigante. Es por eso que aunque éstas cambien, tendrás los recuerdos listos para ver en cualquier dispositivo." />
+              </div>
+            </section>
+            <section id="contact" className="contact">
+              <div className="form-container">
+                <form>
+                  <label htmlFor="name">Nombre:</label>
+                  <input type="text" id="name" name="name" required />
+                  <label htmlFor="email">Correo Electrónico:</label>
+                  <input type="email" id="email" name="email" required />
+                  <label htmlFor="message">Mensaje:</label>
+                  <textarea id="message" name="message" rows="5" required></textarea>
+                  <button type="submit">Enviar</button>
+                </form>
+              </div>
+            </section>
+          </>
+        } />
+        <Route path="/item/:id" element={<ItemDetailContainer />} />
+      </Routes>
       <Footer />
-    </>
+    </Router>
   );
 }
 
 export default App;
+
+

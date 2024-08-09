@@ -1,40 +1,42 @@
-import React, { useEffect, useState } from 'react';
-import Item from './Item/Item';
-import Contador from '../Contador/Contador'; // Asegúrate de que la ruta sea correcta
+import React, { useState, useEffect } from 'react';
+import Item from '../Item/Item';
+import './ItemListContainer.css';
 
-export const ItemListContainer = ({ greeting }) => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+const ItemListContainer = ({ greeting }) => {
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchItems = async () => {
       try {
-        const response = await fetch('/productos.json'); // Asegúrate de que la ruta sea correcta
+        const response = await fetch('/productos.json'); // Ajusta la ruta según sea necesario
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
         const data = await response.json();
-        setProducts(data);
+        setItems(data);
       } catch (error) {
-        console.error('Error fetching products:', error);
-      } finally {
-        setLoading(false);
+        console.error('Error fetching items:', error);
       }
     };
 
-    fetchProducts();
+    fetchItems();
   }, []);
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
 
   return (
     <div>
       <h1>{greeting}</h1>
       <div className="products-list">
-        {products.map(product => (
-          <div key={product.id} className="product-card">
-            <Item title={product.title} description={product.description} price={product.price} />
-            <Contador productId={product.id} /> {/* Pasa el ID del producto al contador */}
-          </div>
+        {items.map(item => (
+          <Item
+            key={item.id}
+            id={item.id}
+            title={item.title}
+            description={item.description}
+            price={item.price}
+            stock={item.stock}
+            image={item.image}
+            className="product-card" 
+          />
         ))}
       </div>
     </div>
@@ -42,6 +44,16 @@ export const ItemListContainer = ({ greeting }) => {
 };
 
 export default ItemListContainer;
+
+
+
+
+
+
+
+
+
+
 
 
 

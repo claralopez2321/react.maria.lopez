@@ -1,6 +1,6 @@
 .card {
   background-color: white;
-  border: 5px solid #fddf33; /* Borde amarillo */
+  border: 5px solid #fddf33; 
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   padding: 16px;

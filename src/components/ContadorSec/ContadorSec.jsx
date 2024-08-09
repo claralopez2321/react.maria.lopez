@@ -1,8 +1,7 @@
-// src/components/ContadorSec/ContadorSec.jsx
 import React, { useState, useEffect } from 'react';
 import './ContadorSec.css';
 
-export const ContadorSec = () => {
+const ContadorSec = () => {
   const [contador, setContador] = useState(0);
 
   useEffect(() => {
@@ -26,3 +25,5 @@ export const ContadorSec = () => {
     </div>
   );
 };
+
+export default ContadorSec;

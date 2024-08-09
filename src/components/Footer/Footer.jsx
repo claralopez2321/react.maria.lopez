@@ -1,9 +1,12 @@
-import React from 'react'
+// src/components/Footer/Footer.jsx
+import React from 'react';
 
-export const Footer = () => {
-    return (
-        <footer className="footer">
-          <p>&copy; 2024 ForeverFramed. Todos los derechos reservados.</p>
-        </footer>
-      );
-    };
+const Footer = () => {
+  return (
+    <footer className="footer">
+      <p>&copy; 2024 ForeverFramed. Todos los derechos reservados.</p>
+    </footer>
+  );
+};
+
+export default Footer;
