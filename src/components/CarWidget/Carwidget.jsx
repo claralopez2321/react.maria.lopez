@@ -10,9 +10,10 @@ const CarWidget = () => {
 
   return (
     <div className="car-widget">
-      {cartCount}
+      {cartCount > 0 && <span>{cartCount}</span>}
     </div>
   );
 };
 
 export default CarWidget;
+

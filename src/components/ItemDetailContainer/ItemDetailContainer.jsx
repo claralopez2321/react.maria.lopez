@@ -1,42 +1,51 @@
+// src/components/ItemDetailContainer/ItemDetailContainer.jsx
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import './ItemDetailContainer.css';
 
-const ItemDetailContainer = () => {
+const ItemDetailContainer = ({ onAddToCart }) => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch('/productos.json'); // Asegúrate de que la ruta sea correcta
+        const response = await fetch(`/productos.json`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        const selectedProduct = data.find(item => item.id === parseInt(id));
-        setProduct(selectedProduct);
+        const foundProduct = data.find(item => item.id === parseInt(id));
+        setProduct(foundProduct);
       } catch (error) {
         console.error('Error fetching product:', error);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchProduct();
   }, [id]);
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   if (!product) {
-    return <p>Loading...</p>;
+    return <div>Product not found</div>;
   }
 
   return (
-    <div>
-      <ItemDetail product={product} />
+    <div className="item-detail-container">
+      <ItemDetail product={product} onAddToCart={onAddToCart} />
     </div>
   );
 };
 
 export default ItemDetailContainer;
+
 
 
 

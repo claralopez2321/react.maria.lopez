@@ -1,15 +1,12 @@
 .products-list {
   display: flex;
-  flex-wrap: nowrap; /* Asegura que los productos estén en una sola fila */
-  gap: 35px; /* Ajusta el espacio entre los productos */
+  flex-wrap: wrap; /* Permite el envolvimiento en múltiples filas */
+  gap: 35px; /* Espacio entre los productos */
   justify-content: center; /* Centra los productos horizontalmente */
   padding: 20px;
-  overflow-x: auto; /* Permite desplazamiento horizontal si hay demasiados productos */
 }
 
-/* Define the card styling */
 .product-card {
-  flex: 0 0 auto; /* Impide que el contenedor crezca o se reduzca */
   width: 250px; /* Ajusta el ancho según sea necesario */
   background-color: #fff;
   border: 1px solid #ccc;
@@ -18,9 +15,54 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Estilo para las filas específicas */
+.products-list > *:nth-child(-n+4) {
+  margin-bottom: 20px; /* Ajusta el espaciado entre filas si es necesario */
+}
 
+.products-list > *:nth-child(n+5) {
+  margin-top: 20px; /* Ajusta el espaciado entre la primera y la segunda fila */
+}
 
+/* Estilo para las categorías y el botón */
+.category-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
 
+.category-buttons button {
+  padding: 10px 20px;
+  background-color: #FFBF00;
+  color: #1f1a1a;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-  
-  
+.category-buttons button:hover {
+  background-color: #ff9d0a;
+}
+
+.view-all-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.view-all-button {
+  padding: 10px 25px;
+  background-color: #ff9100;
+  color: #0a0808;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+.view-all-button:hover {
+  background-color: #f5d20d;
+}

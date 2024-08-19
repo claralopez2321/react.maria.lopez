@@ -1,3 +1,4 @@
+/* Contenedor de la tarjeta del detalle del producto */
 .item-detail-card {
   display: flex;
   flex-direction: row;
@@ -11,6 +12,7 @@
   padding: 20px;
 }
 
+/* Imagen del detalle del producto */
 .item-detail-image {
   width: 300px; /* Ajusta el ancho según sea necesario */
   height: auto;
@@ -18,6 +20,7 @@
   margin-right: 20px; /* Espacio entre la imagen y el contenido */
 }
 
+/* Contenido del detalle del producto */
 .item-detail-content {
   flex: 1; /* Ocupa el espacio restante */
 }
@@ -46,10 +49,25 @@
   margin-bottom: 20px;
 }
 
+.add-to-cart-button {
+  background-color: #f5bd04;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px; 
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-button:hover {
+  background-color: #fd9610;
+}
+
 .back-button {
-  display: inline-block;
   background-color: #eb8a0c;
-  color: white;
+  color: #fff;
   border: none;
   padding: 10px 20px;
   border-radius: 4px;
@@ -63,3 +81,4 @@
 .back-button:hover {
   background-color: #1a1a1a;
 }
+

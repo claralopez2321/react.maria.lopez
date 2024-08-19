@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './ItemDetail.css';
 
-const ItemDetail = ({ product }) => {
+const ItemDetail = ({ product, onAddToCart }) => {
   return (
     <div className="item-detail-card">
       <img src={product.image} alt={product.title} className="item-detail-image" />
@@ -11,13 +10,20 @@ const ItemDetail = ({ product }) => {
         <p className="item-detail-description">{product.description}</p>
         <p className="item-detail-price">Precio: ${product.price}</p>
         <p className="item-detail-stock">Stock: {product.stock}</p>
-        <Link to="/" className="back-button">Volver</Link>
+        <button className="add-to-cart-button" onClick={() => onAddToCart(product)}>
+          Agregar al carrito
+        </button>
+        <br />
+        <button className="back-button" onClick={() => window.history.back()}>
+          Volver
+        </button>
       </div>
     </div>
   );
 };
 
 export default ItemDetail;
+
 
 
 
