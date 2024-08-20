@@ -24,7 +24,7 @@ const ItemListContainer = ({ greeting, onAddToCart }) => {
   }, []);
 
   const handleViewAllServices = () => {
-    setFilteredItems(items); // Muestra todos los productos
+    setFilteredItems(items); 
   };
 
   const filterByCategory = (categoryIds) => {
@@ -52,7 +52,7 @@ const ItemListContainer = ({ greeting, onAddToCart }) => {
             price={item.price}
             stock={item.stock}
             image={item.image}
-            onAddToCart={onAddToCart} // Pasa la función aquí
+            onAddToCart={onAddToCart} 
           />
         ))}
       </div>

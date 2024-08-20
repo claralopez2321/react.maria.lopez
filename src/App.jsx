@@ -16,14 +16,17 @@ import Checkout from './components/Checkout/Checkout';
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isCartAnimated, setIsCartAnimated] = useState(false); // Estado para la animación del carrito
 
   const addToCart = (product) => {
     setCartItems(prevItems => [...prevItems, product]);
+    setIsCartAnimated(true); // Activar animación
+    setTimeout(() => {
+      setIsCartAnimated(false); // Desactivar animación después de 300ms
+    }, 300);
   };
 
   const handleCheckout = () => {
-    // Aquí podrías agregar la lógica para redirigir a la página de checkout
-    // Por ejemplo, usando react-router-dom
     window.location.href = '/checkout'; // Redirige a la página de checkout
   };
 
@@ -46,7 +49,7 @@ function App() {
 
   return (
     <Router>
-      <Navbar onOpenSidebar={openSidebar} /> {/* Pasa la función para abrir el sidebar */}
+      <Navbar onOpenSidebar={openSidebar} isCartAnimated={isCartAnimated} /> {/* Pasar el estado de animación */}
       <Routes>
         <Route
           path="/"
@@ -111,7 +114,7 @@ function App() {
           cartItems={cartItems}
           onClose={closeSidebar}
           onCheckout={handleCheckout}
-          onClearCart={clearCart} // Añade la función para limpiar el carrito
+          onClearCart={clearCart} 
         />
       )}
     </Router>
@@ -119,3 +122,4 @@ function App() {
 }
 
 export default App;
+

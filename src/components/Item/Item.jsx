@@ -4,14 +4,13 @@ import './Item.css';
 
 const Item = ({ id, title, description, price, stock, image, onAddToCart }) => {
   
-  // Función que se ejecuta cuando se hace clic en el botón "Agregar al carrito"
   const handleAddToCart = () => {
     onAddToCart({
       id,
       title,
       price,
       image,
-      quantity: 1 // O cualquier cantidad que desees por defecto
+      quantity: 1 
     });
   };
 

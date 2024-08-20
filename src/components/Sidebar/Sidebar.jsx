@@ -1,9 +1,9 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+import { useNavigate } from 'react-router-dom'; 
 import './Sidebar.css';
 
 const Sidebar = ({ cartItems, onClose, onClearCart }) => {
-  const navigate = useNavigate(); // Crea una instancia de useNavigate
+  const navigate = useNavigate(); 
 
   // Calcula el total a pagar
   const calculateTotal = () => {
@@ -11,7 +11,6 @@ const Sidebar = ({ cartItems, onClose, onClearCart }) => {
   };
 
   const handleCheckout = () => {
-    // Usa navigate para redirigir a la página de checkout
     navigate('/checkout');
   };
 

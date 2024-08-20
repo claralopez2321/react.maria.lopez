@@ -1,6 +1,6 @@
 import React from 'react';
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate para la redirección
+import { useNavigate } from 'react-router-dom'; 
 import './Checkout.css';
 
 const Checkout = ({ cartItems, onClearCart }) => {
@@ -33,8 +33,7 @@ const Checkout = ({ cartItems, onClearCart }) => {
         console.error('onClearCart no está definido');
       }
 
-      // Redirige a la pantalla de inicio
-      navigate('/'); // Redirige usando navigate
+      navigate('/'); 
       console.log('Redirigiendo a la página de inicio');
     }
   };
