@@ -1,10 +1,14 @@
+// Checkout.jsx
 import React from 'react';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom'; 
+import { useContext } from 'react';
+import { CartContext } from '../../Context/CartContext';
 import './Checkout.css';
 
-const Checkout = ({ cartItems, onClearCart }) => {
-  const navigate = useNavigate(); // Inicializa useNavigate
+const Checkout = () => {
+  const { cartItems, clearCart } = useContext(CartContext);
+  const navigate = useNavigate(); 
 
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => total + item.price, 0).toFixed(2);
@@ -13,7 +17,6 @@ const Checkout = ({ cartItems, onClearCart }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Muestra el SweetAlert
     const result = await Swal.fire({
       title: '¡Pago confirmado!',
       text: 'Gracias por elegirnos! En breve uno de nuestros diseñadores se comunicará con usted para gestionar su PhotoBook Digital!',
@@ -21,20 +24,9 @@ const Checkout = ({ cartItems, onClearCart }) => {
       confirmButtonText: 'Aceptar'
     });
 
-    // Si el usuario hace clic en "Aceptar"
     if (result.isConfirmed) {
-      console.log('SweetAlert confirmado');
-      
-      // Limpia el carrito
-      if (onClearCart) {
-        onClearCart();
-        console.log('Carrito limpiado');
-      } else {
-        console.error('onClearCart no está definido');
-      }
-
+      clearCart(); 
       navigate('/'); 
-      console.log('Redirigiendo a la página de inicio');
     }
   };
 
@@ -64,5 +56,4 @@ const Checkout = ({ cartItems, onClearCart }) => {
 };
 
 export default Checkout;
-
 

@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+// CarWidget.jsx
+import React, { useContext } from 'react';
 import './CarWidget.css';
+import { CartContext } from '../../Context/CartContext';
 
 const CarWidget = () => {
-  const [cartCount, setCartCount] = useState(0);
-
-  const addToCart = (quantity) => {
-    setCartCount(prevCount => prevCount + quantity);
-  };
+  const { cartItems } = useContext(CartContext);
+  const cartCount = cartItems.length;
 
   return (
     <div className="car-widget">

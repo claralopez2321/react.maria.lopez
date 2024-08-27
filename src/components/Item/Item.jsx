@@ -1,11 +1,14 @@
-import React from 'react';
+// Item.jsx
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Item.css';
+import { CartContext } from '../../Context/CartContext';
 
-const Item = ({ id, title, description, price, stock, image, onAddToCart }) => {
-  
+const Item = ({ id, title, price, stock, image }) => {
+  const { addToCart } = useContext(CartContext);
+
   const handleAddToCart = () => {
-    onAddToCart({
+    addToCart({
       id,
       title,
       price,
@@ -16,10 +19,11 @@ const Item = ({ id, title, description, price, stock, image, onAddToCart }) => {
 
   return (
     <div className="item-card">
-      <img src={image} alt={title} className="item-image" />
-      <h2 className="item-title">{title}</h2>
-      <p className="item-price">${price}</p>
-      <p className="item-stock">Stock: {stock}</p>
+      {/* Mostrar imagen del producto */}
+      {image && <img src={image} alt={title} className="item-image" />}
+      <h3>{title}</h3>
+      <p>Price: ${price}</p>
+      <p>Stock: {stock}</p>
       <div className="item-buttons">
         <button onClick={handleAddToCart} className="add-to-cart-button">
           Agregar al carrito

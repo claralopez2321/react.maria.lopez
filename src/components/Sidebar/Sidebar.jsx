@@ -1,14 +1,12 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom'; 
+// Sidebar.jsx
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Sidebar.css';
+import { CartContext } from '../../Context/CartContext';
 
-const Sidebar = ({ cartItems, onClose, onClearCart }) => {
-  const navigate = useNavigate(); 
-
-  // Calcula el total a pagar
-  const calculateTotal = () => {
-    return cartItems.reduce((total, item) => total + item.price, 0).toFixed(2);
-  };
+const Sidebar = ({ onClose }) => {
+  const { cartItems, clearCart, calculateTotal } = useContext(CartContext);
+  const navigate = useNavigate();
 
   const handleCheckout = () => {
     navigate('/checkout');
@@ -16,32 +14,37 @@ const Sidebar = ({ cartItems, onClose, onClearCart }) => {
 
   return (
     <div className="sidebar">
-      <button className="close-sidebar" onClick={onClose}>X</button>
+      <button className="close-sidebar" onClick={onClose}>Cerrar</button>
       <h2>Carrito de Compras</h2>
-      {cartItems.length === 0 ? (
-        <p>No hay productos en el carrito.</p>
-      ) : (
-        <ul>
-          {cartItems.map((item, index) => (
-            <li key={index}>
-              <img src={item.image} alt={item.title} className="sidebar-item-image" />
-              <span>{item.title} - ${item.price}</span>
-            </li>
-          ))}
-        </ul>
-      )}
+      <div className="cart-items">
+        {cartItems.length === 0 ? (
+          <p>El carrito está vacío</p>
+        ) : (
+          <ul>
+            {cartItems.map((item) => (
+              <li key={item.id} className="sidebar-item">
+                <div className="sidebar-item-details">
+                  <p>{item.title}</p>
+                  <p>Precio: ${item.price}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
       {cartItems.length > 0 && (
-        <div className="total-container">
-          <h3>Total a pagar: ${calculateTotal()}</h3>
-          <button className="checkout-button" onClick={handleCheckout}>Finalizar compra</button>
+        <div className="cart-summary">
+          <h3>Total: ${calculateTotal()}</h3>
+          <button className="clear-cart-button" onClick={clearCart}>Limpiar Carrito</button>
+          <button className="checkout-button" onClick={handleCheckout}>Finalizar Compra</button>
         </div>
       )}
-      <button className="clear-cart-button" onClick={onClearCart}>Limpiar carrito</button> {/* Botón para limpiar carrito */}
     </div>
   );
 };
 
 export default Sidebar;
+
 
 
 

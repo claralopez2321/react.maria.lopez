@@ -1,4 +1,3 @@
-// src/components/ItemDetailContainer/ItemDetailContainer.jsx
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
@@ -12,7 +11,7 @@ const ItemDetailContainer = ({ onAddToCart }) => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`/productos.json`);
+        const response = await fetch('/productos.json');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

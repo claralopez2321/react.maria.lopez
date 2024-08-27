@@ -1,7 +1,21 @@
-import React from 'react';
+// ItemDetail.jsx
+import React, { useContext } from 'react';
+import { CartContext } from '../../Context/CartContext';
 import './ItemDetail.css';
 
-const ItemDetail = ({ product, onAddToCart }) => {
+const ItemDetail = ({ product }) => {
+  const { addToCart } = useContext(CartContext);
+
+  const handleAddToCart = () => {
+    addToCart({
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      image: product.image,
+      quantity: 1 // Puedes ajustar la cantidad según lo necesites
+    });
+  };
+
   return (
     <div className="item-detail-card">
       <img src={product.image} alt={product.title} className="item-detail-image" />
@@ -10,7 +24,7 @@ const ItemDetail = ({ product, onAddToCart }) => {
         <p className="item-detail-description">{product.description}</p>
         <p className="item-detail-price">Precio: ${product.price}</p>
         <p className="item-detail-stock">Stock: {product.stock}</p>
-        <button className="add-to-cart-button" onClick={() => onAddToCart(product)}>
+        <button className="add-to-cart-button" onClick={handleAddToCart}>
           Agregar al carrito
         </button>
         <br />
@@ -23,6 +37,8 @@ const ItemDetail = ({ product, onAddToCart }) => {
 };
 
 export default ItemDetail;
+
+
 
 
 

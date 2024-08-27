@@ -15,6 +15,7 @@ const ItemListContainer = ({ greeting, onAddToCart }) => {
         }
         const data = await response.json();
         setItems(data);
+        setFilteredItems(data); // Inicialmente muestra todos los productos
       } catch (error) {
         console.error('Error fetching items:', error);
       }
@@ -67,3 +68,4 @@ const ItemListContainer = ({ greeting, onAddToCart }) => {
 };
 
 export default ItemListContainer;
+
