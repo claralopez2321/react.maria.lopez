@@ -8,7 +8,6 @@ La navegabilidad fue pensada para ser intuitiva. Fue realizado con React de acue
 
 Pueden navegar a traves de los productos y agregarlos al carrito. Se puede navegar a través de las categorías, etc. Se que pueden faltar detalles a realizar, me gustaria que se marquen. Gracias!
 
-Me falta arreglar cuestiones que se desconfiguraron al conectar el firebase.
 
 --------------
 
