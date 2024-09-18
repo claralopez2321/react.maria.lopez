@@ -1,4 +1,4 @@
-// Item.jsx
+// src/components/Item/Item.jsx
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Item.css';
@@ -13,14 +13,13 @@ const Item = ({ id, title, price, stock, image }) => {
       title,
       price,
       image,
-      quantity: 1 
+      quantity: 1
     });
   };
 
   return (
     <div className="item-card">
-      {/* Mostrar imagen del producto */}
-      {image && <img src={image} alt={title} className="item-image" />}
+      {image ? <img src={image} alt={title} className="item-image" /> : <p>No Image Available</p>}
       <h3>{title}</h3>
       <p>Price: ${price}</p>
       <p>Stock: {stock}</p>
@@ -28,7 +27,7 @@ const Item = ({ id, title, price, stock, image }) => {
         <button onClick={handleAddToCart} className="add-to-cart-button">
           Agregar al carrito
         </button>
-        <Link to={`/item/${id}`} className="view-more-button">
+        <Link to={`/item/${id}`} className="view-more-link">
           <button>Ver más</button>
         </Link>
       </div>
@@ -37,7 +36,6 @@ const Item = ({ id, title, price, stock, image }) => {
 };
 
 export default Item;
-
 
 
 
