@@ -1,6 +1,9 @@
+// src/components/ItemDetailContainer/ItemDetailContainer.jsx
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
+import { db } from '../../firebaseConfig'; // Ajusta la ruta si es necesario
+import { doc, getDoc } from 'firebase/firestore';
 import './ItemDetailContainer.css';
 
 const ItemDetailContainer = ({ onAddToCart }) => {
@@ -11,13 +14,13 @@ const ItemDetailContainer = ({ onAddToCart }) => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch('/productos.json');
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
+        const docRef = doc(db, 'item', id); // Referencia al documento del producto
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          setProduct({ id: docSnap.id, ...docSnap.data() });
+        } else {
+          console.log('No such document!');
         }
-        const data = await response.json();
-        const foundProduct = data.find(item => item.id === parseInt(id));
-        setProduct(foundProduct);
       } catch (error) {
         console.error('Error fetching product:', error);
       } finally {
@@ -44,6 +47,7 @@ const ItemDetailContainer = ({ onAddToCart }) => {
 };
 
 export default ItemDetailContainer;
+
 
 
 
